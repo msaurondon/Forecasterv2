@@ -10,7 +10,7 @@
   function setSymbol(symbol){
     let p = window.document.getElementById('s2');
     //p.append(symbol);
-    p.innerHTML = symbol;
+    p.innerHTML = symbol.toUpperCase();
   }
 
   function setDate(date){

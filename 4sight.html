@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/scripts/style.css">
   <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
   <title>4sight</title>
@@ -23,8 +24,22 @@
       <div class="column">&nbsp;</div>
 
       <div class="column is-one-quarter"><input class="input" type="text" id="s1" placeholder="Symbol"></div>
+      <!--column with checkbox-->
+      <div class="column">
 
-      <div class="column">&nbsp;</div>
+        <!--<div class="container">-->
+
+          <div class="slider">
+            <input type="checkbox" name="slider" class="slider-checkbox" id="sliderSwitch">
+            <label class="slider-label" for="sliderSwitch">
+              <span class="slider-inner"></span>
+              <span class="slider-circle"></span>
+            </label>
+          </div>
+
+        <!--</div>-->
+
+      </div>
     </div> <!-- end of columns -->
     <div class="buttons">
       <div class="column">&nbsp;</div>
@@ -62,31 +77,34 @@
     <div class="columns">
 <div class="column level-item has-text-centered"><p class="heading">1% of AVR:</p><p class="title" id="s8">440029</p></div>
 
+</div> <!-- end of columns -->
+<div class="columns">
+  <div class="column level-item has-text-centered"><p class="heading">Consolidation Range</p><p class="title" id="s9">X - Y</p></div>
+    </div> <!-- end of columns -->
+
+    <div class="columns">
+      <div class="column level-item has-text-centered"><p class="heading">Price Target:</p><p class="title" id="s10">21.88</p></div>
+    </div> <!-- end of columns -->
+    <div class="columns">
+<div class="column level-item has-text-centered"><p class="heading">Estimated Gain:</p><p class="title" id="s11">4.5%</p></div>
 
     </div> <!-- end of columns -->
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">Price Target:</p><p class="title">21.88</p></div>
-    </div> <!-- end of columns -->
-    <div class="columns">
-<div class="column level-item has-text-centered"><p class="heading">Estimated Gain:</p><p class="title">4.5%</p></div>
-
-    </div> <!-- end of columns -->
-    <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">Estimate Time to Target:</p><p class="title">2 - 4 Trading Periods</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">Estimate Time to Target:</p><p class="title" id="s12">2 - 4 Trading Periods</p></div>
     </div> <!-- end of columns -->
     <div class="columns"><div class="column">&nbsp;</div></div>
     <div class="columns">
       <div class="column level-item has-text-centered"><p class="title">Suggested Stops</p></div>
     </div> <!-- end of columns -->
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">Trend MA:</p><p class="title">28.08</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">Trend MA:</p><p class="title" id="s13">28.08</p></div>
     </div> <!-- end of columns -->
     <div class="columns">
-<div class="column level-item has-text-centered"><p class="heading">ATR * 1.5</p><p class="title">26.80</p></div>
+<div class="column level-item has-text-centered"><p class="heading">ATR * 1.5</p><p class="title" id="s14">26.80</p></div>
 
             </div> <!-- end of columns -->
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">SAR:</p><p class="title">31.84</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">SAR:</p><p class="title" id="s15">31.84</p></div>
     </div> <!-- end of columns -->
   </div><!-- end of container is fluid -->
 
