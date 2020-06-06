@@ -36,6 +36,7 @@ function fetchAverageData(jsonData, type){
       break;
     case "range":
       returnValue = jsonData["2. high"] - jsonData["3. low"];
+      console.log(returnValue);
       break;
     case "volume":
       returnValue = jsonData["5. volume"];

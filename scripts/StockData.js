@@ -9,6 +9,7 @@ import {
 } from '/scripts/Consolidation.js'
 
 let message = {
+  WeeklyData: false,
   LastPrice: 0.0,
   TrendMA: 0.0,
   Trend: "",
@@ -23,8 +24,10 @@ let message = {
   Low : 0,
   Target: 0.0,
   Projection: 0.0,
+  SoftTarget : 0.0,
+  SoftProjection : 0.0,
   atrStop : function() {
-    return trend === "Bull" ? message.LastPrice - (message.ATR * 1.5) : message.LastPrice + (message.ATR * 1.5);
+    return message.DailyAttitude() <= .5 ? message.LastPrice - (message.ATR * 1.5) : message.LastPrice + (message.ATR * 1.5);
   },
   Consolidation : function(){
     if (message.HighestHigh >= message.LastPrice && message.LastPrice >= message.LowestLow)
@@ -56,7 +59,7 @@ let message = {
 
       var multiplier = 0.0;
       var consol = message.Consolidation();
-
+console.log("Multiplier:" + consol);
       try{
         if(message.Trend === "Bull"){
           if(message.DailyAttitude() <= .5){
@@ -86,20 +89,25 @@ let message = {
       {
         console.log(err);
       }
-
+console.log(multiplier);
       return multiplier;
   },
   TargetPrice : function(){
     var target = 0.0;
+    var softTarget = 0.0;
     try{
-      message.Projection = message.ATR * message.Multiplier();
-      target = message.Trend == "Bull" ? Number(message.LastPrice) + message.Projection : Number(message.LastPrice) - message.Projection;
+      message.Projection = message.DailyRange() * message.Multiplier();
+      message.SoftProjection = message.ATR * message.Multiplier();
+      target = message.DailyAttitude() <= .5 ? Number(message.LastPrice) + message.Projection : Number(message.LastPrice) - message.Projection;
+      softTarget = message.DailyAttitude() <= .5 ? Number(message.LastPrice) + message.SoftProjection : Number(message.LastPrice) - message.SoftProjection;
+      //message.Trend == "Bull" &&
     }
     catch(err){
       console.log(err);
     }
 
     message.Target = Number(target);
+    message.SoftTarget = Number(softTarget);
   },
   Gain : function(){
     return ((message.Target/message.LastPrice)-1)*100;
@@ -120,15 +128,20 @@ let message = {
     document.getElementById("s8").innerHTML = parseInt(message.AVR1);
     document.getElementById("s9").innerHTML = message.InConsolidation();
     message.TargetPrice();
-    document.getElementById("s10").innerHTML = parseFloat(message.Target).toFixed(2);
+    document.getElementById("s10").innerHTML = message.SoftTarget < message.Target ? parseFloat(message.SoftTarget).toFixed(2) + " - " + parseFloat(message.Target).toFixed(2) :
+      parseFloat(message.Target).toFixed(2) + " - " + parseFloat(message.SoftTarget).toFixed(2)  ;
     document.getElementById("s11").innerHTML = message.Gain().toFixed(2) + " %";
     document.getElementById("s12").innerHTML = message.TradeLength();
+    document.getElementById("s13").innerHTML = message.TrendMA.toFixed(2);
+    document.getElementById("s14").innerHTML = message.atrStop().toFixed(2);
   }
+
 
 };
 
-export function createStockData(jsonStockData) {
+export function createStockData(jsonStockData,checked) {
   let msg = message;
+  msg.WeeklyData = checked;
   try{
     setLastPrice(jsonStockData);
     setTrendMovingAverage(jsonStockData);
@@ -161,11 +174,11 @@ function setTrendMovingAverage(jsonStockData) {
 }
 
 function setATR(jsonStockData) {
-  message.ATR = createSMA(jsonStockData, 21, "range");
+  message.ATR = message.WeeklyData ? createSMA(jsonStockData, 52, "range") : createSMA(jsonStockData, 21, "range");
 }
 
 function setAVR(jsonStockData) {
-  message.AVR = createSMA(jsonStockData, 21, "volume");
+  message.AVR = message.WeeklyData ? createSMA(jsonStockData,52,"volume") : createSMA(jsonStockData, 21, "volume");
 
 }
 

@@ -6,12 +6,12 @@ export function loadData(symbol,checked){
   fetchData(symbol,checked);
 }
 
-function splitData(data){
+function splitData(data,checked){
   let metaData = data["Meta Data"];
   console.log(Object.keys(data)[1]);
   let timeSeries = Object.keys(data)[1] === "Time Series (Daily)" ? data["Time Series (Daily)"] : data["Weekly Time Series"];
   constructMetaData(metaData);
-  createStockData(timeSeries);
+  createStockData(timeSeries,checked);
 }
 
 function displayError(err){
@@ -28,6 +28,6 @@ async function fetchData(symbol,checked){
 
   await fetch(url)
     .then(response => response.json())
-    .then(json => splitData(json))
+    .then(json => splitData(json,checked))
     .catch(displayError);
 }

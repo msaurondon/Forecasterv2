@@ -29,20 +29,21 @@ export function setConsolidation(jsonObj, messageIn){
 
 
 function parseData(jsonObj){
-  let barsBack = 11;
+  let barsBack = 10;
   let transactionDate = jsonObj[Object.keys(jsonObj)[0]];
   let lastTradeDate = jsonObj[Object.keys(jsonObj)[0]];
   highestHigh = 0.0;
   lowestLow = 0.0;
   try{
-    while(barsBack >= 1)
+    while(barsBack >= 0)
     {
       transactionDate = Object.keys(jsonObj)[barsBack];
       console.log(transactionDate);
       fetchBoundaries(jsonObj[transactionDate]);
+      if (barsBack === 0 ){ boundaryCleanUp(jsonObj[transactionDate]);}
       barsBack--;
     }
-
+    boundaryCleanUp
 
   }
   catch(err){
@@ -54,21 +55,40 @@ function fetchBoundaries(jsonData){
   let high = jsonData["2. high"];
   let low = jsonData["3. low"];
   let close = jsonData["4. close"];
+  newBoundaries(high, low, close);
   higher(high, low, close);
   lower(high, low, close);
+  boundaryCleanUp(high, low);
+
+
 }
 
+function boundaryCleanUp(jsonData){
+  let high = jsonData["2. high"];
+  let low = jsonData["3. low"];
+
+    if(highestHigh === high && lowestLow === low){
+      highestHigh = 0.0;
+      lowestLow = 0.0;
+    }
+
+}
+
+
+function newBoundaries(high, low, close){
+  highestHigh = close < lowestLow ? high : highestHigh;
+  lowestLow = close > highestHigh ? low : lowestLow;
+}
 
 function higher(high, low, close){
 
   highestHigh = close > highestHigh ? high :
     highestHigh > high ? highestHigh : high;
-  lowestLow = close > highestHigh ? low : lowestLow;
 }
 
 function lower(high, low, close){
-  lowestLow = lowestLow === 0 ? low :
-    lowestLow > close ? low :
-      lowestLow > low ? low : lowestLow;
-   highestHigh = close < lowestLow ? high : highestHigh;
+
+  lowestLow = lowestLow === 0 ? low: //lowestLow;
+              lowestLow > low ? low : //lowestLow
+              lowestLow  > close ? low : lowestLow;
 }
