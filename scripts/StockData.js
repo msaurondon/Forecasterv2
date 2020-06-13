@@ -1,14 +1,17 @@
 import {
   createSMA
-} from './scripts/MovingAverages.js'
+} from '/scripts/MovingAverages.js'
 import {
   setTrend
-} from './scripts/trend.js'
+} from '/scripts/trend.js'
 import {
   setConsolidation
-} from './scripts/Consolidation.js'
+} from '/scripts/Consolidation.js'
+import {loadSAR} from '/scripts/SAR.js'
+
 
 let message = {
+
   WeeklyData: false,
   LastPrice: 0.0,
   TrendMA: 0.0,
@@ -26,6 +29,7 @@ let message = {
   Projection: 0.0,
   SoftTarget : 0.0,
   SoftProjection : 0.0,
+  SAR: 0.0,
   atrStop : function() {
     return message.DailyAttitude() <= .5 ? message.LastPrice - (message.ATR * 1.5) : message.LastPrice + (message.ATR * 1.5);
   },
@@ -140,6 +144,7 @@ console.log(multiplier);
 };
 
 export function createStockData(jsonStockData,checked) {
+
   let msg = message;
   msg.WeeklyData = checked;
   try{
@@ -151,6 +156,7 @@ export function createStockData(jsonStockData,checked) {
     msg.High = getSingleValue(jsonStockData,"high");
     msg.Low = getSingleValue(jsonStockData,"low");
     msg = setConsolidation(jsonStockData, message);
+    msg.SAR = loadSAR(document.getElementById('s2').innerHTML, msg.WeeklyData);
   }
   catch(err){
     console.log(err);
@@ -160,6 +166,8 @@ export function createStockData(jsonStockData,checked) {
   msg.post();
 
 }
+
+
 
 function setLastPrice(jsonStockData) {
   //let counter = 0;

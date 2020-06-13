@@ -1,4 +1,4 @@
-import {loadData} from './scripts/GetData.js'
+import {loadData} from '/scripts/GetData.js'
 
 let symbol = 'IBM';
 

@@ -1,5 +1,5 @@
-import {constructMetaData} from './scripts/MetaData.js'
-import {createStockData} from './scripts/StockData.js'
+import {constructMetaData} from '/scripts/MetaData.js'
+import {createStockData} from '/scripts/StockData.js'
 
 
 export function loadData(symbol,checked){
