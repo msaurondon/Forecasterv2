@@ -50,61 +50,68 @@
       <div class="column">&nbsp;</div>
     </div> <!-- end of buttons -->
   </div> <!-- end of container is fluid -->
+  <div class="container is-fluid" id="welcome">
+    <p class="title" style="text-align:center">Welcome to Orion: 4Sight.  Orion 4Sight is a single bar price analysis/projection system</br></br>
+    This is for entertainment purposes only and should not be taken seriously.</br></br>
+    If you place a stock order based on what 4Sight says, you are 100% solely responsible for all losses.</br></br>
+    But if we are right, please by all means, keep the gains! </br></br>
+  Again, this is just entertainment.</p>
+  </div>
 
-  <div class="container is-fluid" id="swiftmessage">
+  <div class="container is-fluid" id="swiftmessage" style="display:none">
     <div class="columns">
       <div class="column is-one-quarter"></div>
-      <div class="column is-one-quarter"><p class="heading">Symbol:</p><p class="title" id='s2'>UAL</p></div>
-      <div class="column is-one-quarter"><p class="heading">Trade Date:</p><p class="title" id='s3'>6 May 2020</p></div>
+      <div class="column is-one-quarter"><p class="heading">Symbol:</p><p class="title" id='s2'></p></div>
+      <div class="column is-one-quarter"><p class="heading">Trade Date:</p><p class="title" id='s3'></p></div>
       <div class="column is-one-quarter"></div>
     </div>
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">Last:</p><p class="title" id="s4">22.91</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">Last:&nbsp;<a title="The Last price of the traded time period. Or last recorded price during request."><img src="/images/info.png"></a></p><p class="title" id="s4"></p></div>
 
 
     </div> <!-- end of columns -->
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">Trend:</p><p class="title" id="s5">Bear</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">Trend:&nbsp;<a title="Prices are trading above/below the trend defining moving average"><img src="/images/info.png"></a></p><p class="title" id="s5"></p></div>
 
 
     </div> <!-- end of columns -->
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">True ATR:</p><p class="title" id="s6">2.59</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">True ATR:&nbsp;<a title="Average Trading Range of the last 21 days."><img src="/images/info.png"></a></p><p class="title" id="s6"></p></div>
             </div> <!-- end of columns -->
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">True AVR:</p><p class="title" id="s7">44002926</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">True AVR:&nbsp;<a title="Average Volume Range of the last 21 days."><img src="/images/info.png"></a></p><p class="title" id="s7"></p></div>
     </div> <!-- end of columns -->
     <div class="columns">
-<div class="column level-item has-text-centered"><p class="heading">1% of AVR:</p><p class="title" id="s8">440029</p></div>
+<div class="column level-item has-text-centered"><p class="heading">1% of AVR:&nbsp;<a title="1% AVR should never be surpassed if trading lower volume stocks.  Your orders will slip."><img src="/images/info.png"></a></p><p class="title" id="s8"></p></div>
 
 </div> <!-- end of columns -->
 <div class="columns">
-  <div class="column level-item has-text-centered"><p class="heading">Consolidation Range</p><p class="title" id="s9">X - Y</p></div>
+  <div class="column level-item has-text-centered"><p class="heading">Consolidation Range&nbsp;<a title="Range in which prices are caught between.  Some traders refer to it as Support/Resistance."><img src="/images/info.png"></a></p><p class="title" id="s9"></p></div>
     </div> <!-- end of columns -->
 
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">Price Target:</p><p class="title" id="s10">21.88</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">Price Target:&nbsp;<a title="Based on strength calculations, estimate of where the market is going"><img src="/images/info.png"></a></p><p class="title" id="s10"></p></div>
     </div> <!-- end of columns -->
     <div class="columns">
-<div class="column level-item has-text-centered"><p class="heading">Estimated Gain:</p><p class="title" id="s11">4.5%</p></div>
+<div class="column level-item has-text-centered"><p class="heading">Estimated Gain:&nbsp;<a title="If you were to really trade at this time, the anticipated gain based on the price target and current last price."><img src="/images/info.png"></a></p><p class="title" id="s11"></p></div>
 
     </div> <!-- end of columns -->
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">Estimate Time to Target:</p><p class="title" id="s12">2 - 4 Trading Periods</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">Estimate Time to Target:&nbsp;<a title="Estimate of how long it will take the stock to reach the target price."><img src="/images/info.png"></a></p><p class="title" id="s12"></p></div>
     </div> <!-- end of columns -->
     <div class="columns"><div class="column">&nbsp;</div></div>
     <div class="columns">
       <div class="column level-item has-text-centered"><p class="title">Suggested Stops</p></div>
     </div> <!-- end of columns -->
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">Trend MA:</p><p class="title" id="s13">28.08</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">Trend MA:&nbsp;<a title="Stop at the Trending MA.  Always a good place to get out, trend switch!"><img src="/images/info.png"></a></p><p class="title" id="s13"></p></div>
     </div> <!-- end of columns -->
     <div class="columns">
-<div class="column level-item has-text-centered"><p class="heading">ATR * 1.5</p><p class="title" id="s14">26.80</p></div>
+<div class="column level-item has-text-centered"><p class="heading">ATR * 1.5&nbsp;<a title="Giving the ATR a little more wiggly room incase you are in early."><img src="/images/info.png"></a></p><p class="title" id="s14"></p></div>
 
             </div> <!-- end of columns -->
     <div class="columns">
-      <div class="column level-item has-text-centered"><p class="heading">SAR:</p><p class="title" id="s15">31.84</p></div>
+      <div class="column level-item has-text-centered"><p class="heading">SAR:&nbsp;<a title="Was once a manually calculated stop position before computers and modern 'trailing stops'."><img src="/images/info.png"></a></p><p class="title" id="s15"></p></div>
     </div> <!-- end of columns -->
   </div><!-- end of container is fluid -->
 
