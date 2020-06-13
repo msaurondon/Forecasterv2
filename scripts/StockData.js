@@ -1,12 +1,12 @@
 import {
   createSMA
-} from '/scripts/MovingAverages.js'
+} from './scripts/MovingAverages.js'
 import {
   setTrend
-} from '/scripts/trend.js'
+} from './scripts/trend.js'
 import {
   setConsolidation
-} from '/scripts/Consolidation.js'
+} from './scripts/Consolidation.js'
 
 let message = {
   WeeklyData: false,
