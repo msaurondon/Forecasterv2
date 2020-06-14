@@ -127,6 +127,7 @@ console.log(multiplier);
 
     document.getElementById("s4").innerHTML = parseFloat(message.LastPrice).toFixed(2);
     document.getElementById("s5").innerHTML = message.Trend;
+    message.Trend == 'Bull' ? document.getElementById("t2").setAttribute("data-tooltip","Prices are trading above the trend line making the current trend 'Bull'"):document.getElementById("t2").setAttribute("data-tooltip","Prices are trading below the trend line making the current trend 'Bear'");
     document.getElementById("s6").innerHTML = parseFloat(message.ATR).toFixed(2);
     document.getElementById("s7").innerHTML = parseInt(message.AVR);
     document.getElementById("s8").innerHTML = parseInt(message.AVR1);

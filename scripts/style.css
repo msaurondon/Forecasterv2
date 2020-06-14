@@ -80,6 +80,60 @@
 }
 
 
+.tooltip {
+  --scale: 0;
+  --tooltip-color: #00d5ff;
+  --arrow-size: 10px;
+  position: relative;
+  background: var(--tooltip-color);
+  padding: 3px 7px;
+  border-radius: 100%;
+  border: solid #028da8 1px;
+  font-size: 10px;
+  cursor: help;
+  color: black;
+}
+
+.tooltip::after,
+.tooltip::before{
+
+
+  position: absolute;
+  top: -.25rem;
+  left:50%;
+  transform:translateX(-50%) translateY(var(--translate-y,0)) scale(var(--scale));
+
+  transition: 50ms transform;
+  transform-origin: bottom center;
+
+}
+
+.tooltip::before{
+  --translate-y: calc(-100% - var(--arrow-size));
+   padding: .5rem;
+   border-radius: .3rem;
+   width:max-content;
+   text-align:center;
+   max-width: 1000%;
+    background: var(--tooltip-color);
+  content: attr(data-tooltip);
+
+  color: black;
+}
+
+.tooltip:hover::before,
+.tooltip:hover::after{
+  --scale:1;
+}
+
+.tooltip::after{
+  --translate-y: calc(-1*var(--arrow-size));
+  content:'';
+  border: var(--arrow-size) solid transparent;
+  border-top-color: var(--tooltip-color);
+  transform-origin: top center;
+
+}
 
 /* general styling */
 /* html, body {
