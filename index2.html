@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+  <link rel="stylesheet" href="/scripts/style2.css">
+  <title>Document</title>
+
+</head>
+<body>
+  <div class="wrapper" id="swiftmessage">
+    <div class="header">
+      <p class="title">Orion PriceProphet: 4Sight</p>
+      <p class="heading">If you can be right 80% of the time - you are a master.</p>
+    </div>
+    <div class="timeframe"><input class="input" type="text" id="s1" placeholder="Symbol"></div>
+    <div class="gobutton">
+      <div class="slider">
+        <input type="checkbox" name="slider" class="slider-checkbox" id="sliderSwitch">
+        <label class="slider-label" for="sliderSwitch">
+          <span class="slider-inner"></span>
+          <span class="slider-circle"></span>
+        </label>
+      </div>
+    </div>
+    <div><button class="button" onclick='goClicked()'>Go!</button></div>
+    <div class="symbol"><p class="heading">Symbol:</p><p class="title" id='s2'></div>
+    <div class="date"><p class="heading">Trade Date:</p><p class="title" id='s3'></p></div>
+    <div class="last"><p class="heading">Last:&nbsp;<span class="tooltip" id="t1" data-tooltip="Last recorded price of the trade period or at time of data pull.">?</span></p><p class="title" id="s4"></p></div>
+    <div class="trend"><p class="heading">Trend:&nbsp;<span class="tooltip" id="t2" data-tooltip="">?</span></p><p class="title" id="s5"></p></div>
+    <div class="atr"><p class="heading">True ATR:&nbsp;<span class="tooltip" id="t3" data-tooltip="Average Trading Range of the last 21 trade periods.">?</span></p><p class="title" id="s6"></p></div>
+    <div class="avr"><p class="heading">True AVR:&nbsp;<span class="tooltip" id="t4" data-tooltip="Average Volume Range of the last 21 trade periods.">?</span></p><p class="title" id="s7"></p></div>
+    <div class="avr1"><p class="heading">1% of AVR:&nbsp;<span class="tooltip" id="t5" data-tooltip="1% AVR should never be surpassed if trading low volume stocks.  Your should never slip around ~1% or lower volume.">?</span></p><p class="title" id="s8"></p></div>
+    <div class="consol"><p class="heading">Consolidation Range&nbsp;<span class="tooltip" id="t6" data-tooltip="Range in which prices are caught between. Some traders refer to it as Support/Resistance.">?</span></p><p class="title" id="s9"></p></div>
+    <div class="target"><p class="heading">Price Target:&nbsp;<span class="tooltip" id="t7" data-tooltip="Specialized calculations generating an estimate of where the market might go.">?</span></p><p class="title" id="s10"></p></div>
+    <div class="gain"><p class="heading">Estimated Gain:&nbsp;<span class="tooltip" id="t8" data-tooltip="Potential gain/loss based on the price target and current last price.">?</span></p><p class="title" id="s11"></p></div>
+    <div class="time"><p class="heading">Estimate Time to Target:&nbsp;<span class="tooltip" id="t9" data-tooltip="Rough estimate on how long until prices reach target if current strength continues.">?</span></p><p class="title" id="s12"></p></div>
+    <div class="stops"><p class="title">Suggested Stops</p></div>
+    <div class="stopma"><p class="heading">Trend MA:&nbsp;<span class="tooltip" id="t10" data-tooltip="Crossing trending MA generally indicates sever stalling or change of trends.">?</span></p><p class="title" id="s13"></p></div>
+    <div class="stopatr"><p class="heading">ATR * 1.5&nbsp;<span class="tooltip" id="t11" data-tooltip="During a trending market, this point provides a period and a half of wiggle room.">?</span></p><p class="title" id="s14"></p></div>
+    <div class="stopsar"><p class="heading">SAR:&nbsp;<span class="tooltip" id="t12" data-tooltip="Was once a manually calculated stop position (1970s) before computers and modern trailing stops.">?</span></p><p class="title" id="s15"></p></div>
+
+
+  </div>
+
+    <script type='module' src='/scripts/ui.js'>
+</body>
+</html>
