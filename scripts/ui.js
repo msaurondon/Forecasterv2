@@ -9,5 +9,5 @@ function goClicked(){
   symbol = document.getElementById("s1").value;
   //document.getElementById("welcome").style.display = "none";
   loadData(symbol, checked);
-  document.getElementById("swiftmessage").style.display = "grid";
+  //document.getElementById("swiftmessage").style.display = "grid";
 }
